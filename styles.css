@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'AsusRog';
+    src: url('assets/asusrog_regular.ttf') format('truetype');
+}
+
+body {
+    background-image: url('assets/space.jpg'); /* Replace 'background.jpg' with your image file */
+    background-size: cover;
+    color: white;
+    font-family: 'AsusRog', Arial, sans-serif; /* Applying AsusRog font */
+    text-align: center;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    color: orange;
+}
+
+.comment-section {
+    margin-top: 50px;
+}
+
+.download-section {
+    margin-top: 50px;
+}
+
+/* Style for the comment and download sections can be added here */
+.comment-section form textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid orange;
+    margin-bottom: 10px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-section form .submit-button {
+    padding: 10px 20px;
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'AsusRog', Arial, sans-serif; /* Applying AsusRog font */
+}
+
+.comment-section form .submit-button:hover {
+    background-color: darkorange;
+}
+
+.download-section a {
+    color: orange; /* Change the color of download links to orange */
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.download-section a:hover {
+    background-color: orange;
+    color: black;
+}
