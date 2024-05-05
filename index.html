@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Taher's Home Page</title>
+    <link rel="stylesheet" href="https://github.com/mji1321/mywebsite/blob/main/styles.css"> <!-- Linking the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Mohammed Taher!</h1>
+
+        <div class="comment-section">
+            <h2>Comments</h2>
+            <div id="comment-list"></div> <!-- Container for comments -->
+            <!-- Add your comment section here -->
+            <form id="comment-form">
+                <textarea id="comment-input" rows="4" cols="50" placeholder="Leave your comment here"></textarea><br>
+                <button type="submit" class="submit-button">Submit</button> <!-- Add class for styling -->
+                <button type="button" id="clear-button">Clear</button> <!-- Button to clear comments -->
+            </form>
+        </div>
+
+        <div class="admin-section" style="display: none;">
+            <h2>Admin Section</h2>
+            <form id="admin-form">
+                <input type="text" id="username" placeholder="Username" value="admin"><br>
+                <input type="password" id="password" placeholder="Password" value="admin"><br>
+                <button type="button" id="login-button">Login</button>
+            </form>
+        </div>
+
+        <div class="download-section">
+            <h2>Downloads</h2>
+            <!-- Add your download links here -->
+            <a href="file1.pdf" download>Download File 1</a>
+            <a href="file2.zip" download>Download File 2</a>
+            <!-- Add more download links as needed -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const commentForm = document.getElementById("comment-form");
+            const commentInput = document.getElementById("comment-input");
+            const commentList = document.getElementById("comment-list");
+            const clearButton = document.getElementById("clear-button");
+            const adminSection = document.querySelector(".admin-section");
+            const adminForm = document.getElementById("admin-form");
+            const usernameInput = document.getElementById("username");
+            const passwordInput = document.getElementById("password");
+            const loginButton = document.getElementById("login-button");
+
+            // Function to add comment to the comment list
+            function addComment(commentText) {
+                const commentElement = document.createElement("p");
+                commentElement.textContent = commentText;
+                commentList.appendChild(commentElement);
+            }
+
+            // Event listener for form submission
+            commentForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+                const commentText = commentInput.value.trim(); // Get comment text
+
+                if (commentText !== "") {
+                    addComment(commentText); // Add comment to the comment list
+                    commentInput.value = ""; // Clear comment input field
+                }
+            });
+
+            // Event listener for clear button
+            clearButton.addEventListener("click", function() {
+                adminSection.style.display = "block"; // Show admin section when clear button is clicked
+            });
+
+            // Event listener for login button
+            loginButton.addEventListener("click", function() {
+                const enteredUsername = usernameInput.value;
+                const enteredPassword = passwordInput.value;
+
+                if (enteredUsername === "admin" && enteredPassword === "admin") {
+                    adminSection.style.display = "none"; // Hide admin section upon successful login
+                    // Clear comment list
+                    commentList.innerHTML = "";
+                    // Clear username and password fields
+                    usernameInput.value = "";
+                    passwordInput.value = "";
+                } else {
+                    alert("Invalid username or password. Please try again.");
+                    // Clear password field
+                    passwordInput.value = "";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
